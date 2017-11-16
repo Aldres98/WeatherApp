@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">workingWithAPIs</string>
+    <string name="temperatureNow">Temperature in your location right now is: </string>
+</resources>
