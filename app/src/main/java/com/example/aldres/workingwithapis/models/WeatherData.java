@@ -11,7 +11,7 @@ public class WeatherData {
     private Coord coord;
     @SerializedName("weather")
     @Expose
-    private List<Weather> weather = null;
+    private List<Weather> weather;
     @SerializedName("base")
     @Expose
     private String base;

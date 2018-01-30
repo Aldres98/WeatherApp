@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">workingWithAPIs</string>
     <string name="temperatureNow">Temperature in your location right now is: </string>
+    <string name="no_connection_placeholder">Check your internet connection</string>
 </resources>

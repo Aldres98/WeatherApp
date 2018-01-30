@@ -9,4 +9,4 @@ import rx.Observable;
 
 public interface Api {
     @GET("weather?")
-    Observable<WeatherData> getWeatherData(@Query("q") String city, @Query("units") String unitsFormat,@Query("APPID") String apiKey);}
+    Observable<WeatherData> getWeatherData(@Query("lat") String lat, @Query("lon") String lon, @Query("units") String unitsFormat,@Query("APPID") String apiKey);}

@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/WeatherApp.iml" filepath="$PROJECT_DIR$/.idea/WeatherApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/workingWithAPIs.iml" filepath="$PROJECT_DIR$/workingWithAPIs.iml" />
+      <module fileurl="file://C:\Users\Aldres\Desktop\WeatherApp\workingWithAPIs.iml" filepath="C:\Users\Aldres\Desktop\WeatherApp\workingWithAPIs.iml" />
     </modules>
   </component>
 </project>
