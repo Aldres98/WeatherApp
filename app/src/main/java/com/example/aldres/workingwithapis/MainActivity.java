@@ -11,6 +11,9 @@ import com.example.aldres.workingwithapis.Api.Api;
 import com.example.aldres.workingwithapis.models.WeatherData;
 import com.squareup.picasso.Picasso;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -23,10 +26,11 @@ public class MainActivity extends AppCompatActivity {
     private ImageView weatherIcon;
     private TextView temperatureField;
     private TextView cityNameField;
+    private TextView weatherConditions;
+    private  TextView forecastTime;
     private static final String WEATHER_API_KEY = "ab2fe8bd7faa988c55c3d9b13c21435a";
     private static final String WEATHER_API_BASEURL = "http://api.openweathermap.org/data/2.5/";
-    String cityLat;
-    String cityLong;
+    private String cityName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +39,13 @@ public class MainActivity extends AppCompatActivity {
         Context context = this;
         temperatureField = findViewById(R.id.temperature_field);
         cityNameField = findViewById(R.id.city_name);
+        weatherConditions = findViewById(R.id.weather_conditions);
+        forecastTime = findViewById(R.id.forecast_time);
 
         Intent intent = getIntent();
-        cityLat = intent.getStringExtra("cityLat");
-        cityLong = intent.getStringExtra("cityLong");
+        String cityLat = intent.getStringExtra("cityLat");
+        String cityLong = intent.getStringExtra("cityLong");
+        cityName = intent.getStringExtra("cityName");
         System.out.println(cityLat + " " + cityLong);
 
 
@@ -67,8 +74,12 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onNext(WeatherData weatherData) {
+                        Date currentTime = Calendar.getInstance().getTime();
                         String iconId = weatherData.getWeather().get(0).getIcon();
                         temperatureField.setText(weatherData.getMain().getTemp().toString() + " °C");
+                        weatherConditions.setText(weatherData.getWeather().get(0).getDescription());
+                        forecastTime.setText(currentTime.toString());
+                        cityNameField.setText(cityName);
                         System.out.println(iconId);
                         Picasso.with(context)
                                 .load("http://openweathermap.org/img/w/" + iconId + ".png")

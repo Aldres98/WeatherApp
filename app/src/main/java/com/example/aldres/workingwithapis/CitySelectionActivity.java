@@ -27,6 +27,7 @@ public class CitySelectionActivity extends AppCompatActivity {
     LatLng cityLatLong;
     String cityLat;
     String cityLong;
+    String cityName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class CitySelectionActivity extends AppCompatActivity {
             public void onPlaceSelected(Place place) {
                 Log.i("place", "Place: " + place.getLatLng());
                 cityLatLong = place.getLatLng();
+                cityName = place.getName().toString();
             }
 
             @Override
@@ -60,6 +62,7 @@ public class CitySelectionActivity extends AppCompatActivity {
             Intent intent = new Intent(CitySelectionActivity.this, MainActivity.class);
             intent.putExtra("cityLat", cityLat );
             intent.putExtra("cityLong", cityLong);
+            intent.putExtra("cityName", cityName);
             startActivity(intent);
 
         });
